@@ -1,75 +1,84 @@
-# React + TypeScript + Vite
+# Kanban Board Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A functional Kanban board web application for creating and managing boards anonymously, with real-time card updates and drag-and-drop functionality.
 
-Currently, two official plugins are available:
+## Live Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Frontend / Application URL:
+- Backend API URL: https://kanban-board-n4ad.onrender.com
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech Stack
 
-## Expanding the ESLint configuration
+### Frontend
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- React
+- TypeScript
+- CSS Modules
+- @hello-pangea/dnd (Drag & Drop)
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Backend
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- Node.js
+- Express.js
+- TypeScript
+- MongoDB (Mongoose)
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Features
 
+- Anonymous Board Management: Visitors can create, update, and delete boards without requiring user authentication.
+- Unique Board Identification: Each board is assigned a unique hashed ID and a custom name containing three standard columns: _ToDo_, _In Progress_, and _Done_.
+- Board Loading: Users can enter an existing board ID to load and view all associated columns and cards.
+- Card Operations: Create, edit, delete, and move cards between columns.
+- Drag & Drop Functionality: Drag and drop cards between columns or reorder them within the same column using `@hello-pangea/dnd.
+
+---
+
+## Getting Started
+
+To run this project locally, follow these steps:
+
+### 1. Clone the repository
+
+```bash
+git clone <repository-url>
 ```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+### 2. Set up the Backend
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Navigate to the backend directory and install dependencies:
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```bash
+cd backend
+npm install
 ```
+
+Create a .env file in the backend root and add your configuration (e.g., PORT, MONGO_URI).
+
+### 3. Start the backend development server:
+
+```bash
+npm run dev
+```
+
+### 4. Set up the Frontend
+
+Navigate to the frontend directory and install dependencies:
+
+```bash
+cd frontend
+npm install
+```
+
+Create a .env file if needed (e.g., to configure your API base URL).
+
+### 5. Start the frontend development server:
+
+```bash
+npm run dev
+```
+
+## Preview
+
+![Kanban Board](../assets/preview.png)

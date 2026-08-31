@@ -1,4 +1,4 @@
-export interface Card {
+export interface CardType {
   _id: string;
   title: string;
   description?: string;

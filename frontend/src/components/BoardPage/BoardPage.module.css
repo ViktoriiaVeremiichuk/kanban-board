@@ -1,0 +1,72 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  padding-left: 20px;
+  padding-right: 20px;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.inputField {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+}
+
+.input {
+  box-sizing: border-box;
+  width: 250px;
+  height: 35px;
+  border-radius: 6px;
+  border: 2px solid #333999;
+  margin-right: 15px;
+  font-family: inherit;
+  background-color: #f0ffff;
+  padding: 10px;
+}
+
+.button {
+  box-sizing: border-box;
+  width: 100px;
+  height: 35px;
+  border-radius: 6px;
+  background-color: #333999;
+  color: #f0ffff;
+  font-family: inherit;
+  border: transparent;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #f0ffff;
+  color: #333999;
+  border: 2px solid #333999;
+}
+
+.columnsContainer {
+  padding: 15px;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.title {
+  margin-top: 20px;
+  margin-bottom: 0;
+}
+
+.errorText {
+  color: #d32f2f;
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 8px;
+  text-align: center;
+}

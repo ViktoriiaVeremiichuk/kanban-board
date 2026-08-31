@@ -1,0 +1,46 @@
+.column {
+  background-color: #f0ffff;
+  border: 2px solid #333999;
+  border-radius: 8px;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  min-height: 500px;
+  height: fit-content;
+}
+
+.title {
+  font-family: inherit;
+  color: #333999;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+.buttonIcon {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  color: #333999;
+  width: 55px;
+}
+
+.buttonIcon:hover {
+  opacity: 0.7;
+  border-radius: 4px;
+}
+
+.draggableCard {
+  transition: opacity 0.2s ease;
+}
+
+.isDragging {
+  opacity: 0.8;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}

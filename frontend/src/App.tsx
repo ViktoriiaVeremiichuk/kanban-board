@@ -1,9 +1,9 @@
-function App() {
+import BoardPage from "./components/BoardPage/BoardPage.tsx";
+
+export default function App() {
   return (
-    <div>
-      <h1>Kanban Board</h1>
-    </div>
+    <main>
+      <BoardPage />
+    </main>
   );
 }
-
-export default App;
