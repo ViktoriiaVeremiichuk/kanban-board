@@ -168,7 +168,7 @@ export default function BoardPage() {
     }
   };
 
-  const handleDragEnd = (result: DropResult) => {
+  const handleDragEnd = async (result: DropResult) => {
     const { destination, source, draggableId } = result;
 
     if (!destination) return;
@@ -182,31 +182,45 @@ export default function BoardPage() {
 
     const updatedCards = [...cards];
 
-    const cardToMove = updatedCards.find((card) => card._id === draggableId);
-    if (!cardToMove) return;
-
-    const sourceIndex = updatedCards.findIndex(
+    const cardToMoveIndex = updatedCards.findIndex(
       (card) => card._id === draggableId,
     );
+    if (cardToMoveIndex === -1) return;
 
-    updatedCards.splice(sourceIndex, 1);
+    const [cardToMove] = updatedCards.splice(cardToMoveIndex, 1);
 
     const updatedCard: CardType = {
       ...cardToMove,
       column: destination.droppableId as "To Do" | "In Progress" | "Done",
     };
 
-    updatedCards.splice(destination.index, 0, updatedCard);
+    const targetColumnCards = updatedCards.filter(
+      (card) => card.column === destination.droppableId,
+    );
 
-    setCards(updatedCards);
+    targetColumnCards.splice(destination.index, 0, updatedCard);
+
+    const reorderedTargetCards = targetColumnCards.map((card, index) => ({
+      ...card,
+      order: index,
+    }));
+
+    const finalCards = updatedCards
+      .filter((card) => card.column !== destination.droppableId)
+      .concat(reorderedTargetCards);
+    setCards(finalCards);
 
     try {
-      updateCard(boardId, draggableId, {
-        column: updatedCard.column,
-        order: destination.index,
-      });
+      await Promise.all(
+        reorderedTargetCards.map((card) =>
+          updateCard(boardId, card._id, {
+            column: card.column,
+            order: card.order,
+          }),
+        ),
+      );
     } catch (err) {
-      console.error("Failed to update card position:", err);
+      console.error("Failed to update card positions:", err);
     }
   };
 
@@ -257,7 +271,9 @@ export default function BoardPage() {
             <Column
               key={column.id}
               title={column.title}
-              cards={cards.filter((card) => card.column === column.title)}
+              cards={cards
+                .filter((card) => card.column === column.title)
+                .sort((a, b) => (a.order ?? 0) - (b.order ?? 0))}
               onAddCard={() => openCreateModal(column.title)}
               onEditCard={openEditModal}
               onDeleteCard={handleDeleteCard}
