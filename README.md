@@ -32,19 +32,19 @@ Users can create boards, manage tasks, and organize cards using drag-and-drop fu
 
 | Method | Endpoint | Description |
 -----------
-POST - `/boards` - Create a new board 
-GET - `/boards/:boardId` - Get a board by ID
-PATCH - `/boards/:boardId` - Update board information
-DELETE - `/boards/:boardId` - Delete a board
+- POST - `/boards` - Create a new board 
+- GET - `/boards/:boardId` - Get a board by ID
+- PATCH - `/boards/:boardId` - Update board information
+- DELETE - `/boards/:boardId` - Delete a board
 
 ### Cards
 
 | Method | Endpoint | Description |
 -----------
-POST - `/boards/:boardId/cards` - Create a new card in a board 
-GET - `/boards/:boardId/cards` - Get all cards from a board 
-PATCH - `/boards/:boardId/cards/:cardId` - Update a card 
-DELETE - `/boards/:boardId/cards/:cardId` - Delete a card 
+- POST - `/boards/:boardId/cards` - Create a new card in a board 
+- GET - `/boards/:boardId/cards` - Get all cards from a board 
+- PATCH - `/boards/:boardId/cards/:cardId` - Update a card 
+- DELETE - `/boards/:boardId/cards/:cardId` - Delete a card 
 
 
 ## Features
@@ -102,5 +102,5 @@ npm run dev
 ```
 
 **## Preview**
+<img width="1449" height="816" alt="preview" src="https://github.com/user-attachments/assets/ddaa9593-c188-44bf-9fbd-4283a5b609d2" />
 
-![Kanban Board]\(../frontend/src/assets/preview\.png)
