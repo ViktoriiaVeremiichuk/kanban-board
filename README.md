@@ -17,6 +17,7 @@ Users can create boards, manage tasks, and organize cards using drag-and-drop fu
 - React
 - TypeScript
 - CSS Modules
+- Zustand
 - @hello-pangea/dnd (Drag & Drop)
 
 ### Backend
@@ -30,28 +31,29 @@ Users can create boards, manage tasks, and organize cards using drag-and-drop fu
 
 ### Boards
 
-| Method | Endpoint | Description |
------------
-- POST - `/boards` - Create a new board 
+## | Method | Endpoint | Description |
+
+- POST - `/boards` - Create a new board
 - GET - `/boards/:boardId` - Get a board by ID
 - PATCH - `/boards/:boardId` - Update board information
 - DELETE - `/boards/:boardId` - Delete a board
 
 ### Cards
 
-| Method | Endpoint | Description |
------------
-- POST - `/boards/:boardId/cards` - Create a new card in a board 
-- GET - `/boards/:boardId/cards` - Get all cards from a board 
-- PATCH - `/boards/:boardId/cards/:cardId` - Update a card 
-- DELETE - `/boards/:boardId/cards/:cardId` - Delete a card 
+## | Method | Endpoint | Description |
 
+- POST - `/boards/:boardId/cards` - Create a new card in a board
+- GET - `/boards/:boardId/cards` - Get all cards from a board
+- PATCH - `/boards/:boardId/cards/:cardId` - Update a card
+- DELETE - `/boards/:boardId/cards/:cardId` - Delete a card
 
 ## Features
 
 - Anonymous Board Management: Visitors can create, update, and delete boards without requiring user authentication.
 - Unique Board Identification: - Each board receives a unique hashed ID and contains three default columns: ToDo, In Progress, and Done.
 - Board Loading: Users can enter an existing board ID to load and view all associated columns and cards.
+- Board Editing: Users can update the name of an existing board.
+- Board Deletion: Users can delete an existing board together with its associated data.
 - Card Operations: Create, edit, delete, and move cards between columns.
 - Drag & Drop Functionality: Drag and drop cards between columns or reorder them within the same column using \`@hello-pangea/dnd.
 
@@ -104,3 +106,5 @@ npm run dev
 **## Preview**
 <img width="1449" height="816" alt="preview" src="https://github.com/user-attachments/assets/ddaa9593-c188-44bf-9fbd-4283a5b609d2" />
 
+![Kanban Board]\(../frontend/src/assets/preview\.png)
+![alt text](preview.png)

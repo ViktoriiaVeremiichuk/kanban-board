@@ -1,7 +1,7 @@
 import axios from "axios";
 import { type Board } from "../types/board";
 
-const api = axios.create({ baseURL: "https://kanban-board-n4ad.onrender.com" });
+const api = axios.create({ baseURL: import.meta.env.VITE_API_URL });
 
 export const createBoard = async (name: string): Promise<Board> => {
   const response = await api.post<Board>(`/api/boards`, { name });
@@ -14,8 +14,8 @@ export const getBoard = async (boardId: string): Promise<Board> => {
 };
 
 export const updateBoard = async (
-  name: string,
   boardId: string,
+  name: string,
 ): Promise<Board> => {
   const response = await api.patch<{ message: string; updatedBoard: Board }>(
     `/api/boards/${boardId}`,

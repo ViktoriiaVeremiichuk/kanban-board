@@ -18,6 +18,7 @@
   min-height: 245px;
   width: 350px;
   padding: 20px;
+  box-sizing: border-box;
 }
 
 .title {
@@ -86,4 +87,9 @@
   background-color: #f0ffff;
   color: #333999;
   border: 2px solid #333999;
+}
+
+.button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }

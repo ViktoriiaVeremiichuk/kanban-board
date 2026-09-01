@@ -18,6 +18,12 @@
   margin-bottom: 15px;
 }
 
+.cardList {
+  display: flex;
+  flex-direction: column;
+  min-height: 20px;
+}
+
 .buttonIcon {
   background-color: transparent;
   border: none;
@@ -27,7 +33,6 @@
   align-items: center;
   justify-content: center;
   align-self: center;
-  color: #333999;
   width: 55px;
 }
 
@@ -38,9 +43,4 @@
 
 .draggableCard {
   transition: opacity 0.2s ease;
-}
-
-.isDragging {
-  opacity: 0.8;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }

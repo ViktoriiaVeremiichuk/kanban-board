@@ -15,10 +15,15 @@ export default function Card({ card, onEdit, onDelete }: CardProps) {
         <p className={styles.description}>{card.description}</p>
       )}
       <div className={styles.buttonsGroup}>
-        <button className={styles.buttonIcon} onClick={() => onEdit(card)}>
+        <button
+          className={styles.buttonIcon}
+          type="button"
+          onClick={() => onEdit(card)}
+        >
           <img src="/editIcon.svg" alt="Edit" width={25} height={25} />
         </button>
         <button
+          type="button"
           className={styles.buttonIcon}
           onClick={() => onDelete(card._id)}
         >

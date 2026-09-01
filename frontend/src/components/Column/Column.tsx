@@ -54,7 +54,7 @@ export default function Column({
         )}
       </Droppable>
 
-      <button className={styles.buttonIcon} onClick={onAddCard}>
+      <button className={styles.buttonIcon} type="button" onClick={onAddCard}>
         <img src="/addIcon.svg" alt="Add" width={30} height={30} />
       </button>
     </div>

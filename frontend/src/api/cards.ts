@@ -1,7 +1,7 @@
 import axios from "axios";
 import { type CardType } from "../types/card";
 
-const api = axios.create({ baseURL: "https://kanban-board-n4ad.onrender.com" });
+const api = axios.create({ baseURL: import.meta.env.VITE_API_URL });
 
 export const createCard = async (
   boardId: string,
