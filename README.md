@@ -106,5 +106,3 @@ npm run dev
 **## Preview**
 <img width="1449" height="816" alt="preview" src="https://github.com/user-attachments/assets/ddaa9593-c188-44bf-9fbd-4283a5b609d2" />
 
-![Kanban Board]\(../frontend/src/assets/preview\.png)
-![alt text](preview.png)
